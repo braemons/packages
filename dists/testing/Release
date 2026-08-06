@@ -1,0 +1,32 @@
+Architectures: amd64 arm64
+Codename: testing
+Components: main
+Date: Thu, 06 Aug 2026 07:32:56 +0000
+Description: braemons packages (testing)
+Label: braemons
+Origin: braemons
+Suite: testing
+MD5Sum:
+ 2729ce2b02cf19b4b948e4020fe703ab              189 Release
+ 7eed47bc47c6acffc4315a9eb0ece0ca             2064 main/binary-amd64/Packages
+ fa2711478e77def043144401c128bee5             1142 main/binary-amd64/Packages.gz
+ f9cdf4d6cf7d10005a5f30fcc7e774c2             2064 main/binary-arm64/Packages
+ 7d6fd3fb85d7cc4f1e45be06b74a9eba             1138 main/binary-arm64/Packages.gz
+SHA1:
+ 461967efa5be3853844330f01fadab213e132a57              189 Release
+ 322e6f12fcd827f11104e80d2076bc5364e9dc35             2064 main/binary-amd64/Packages
+ 30130958a53f68ede4d539fcc94fa42e2c93ebfa             1142 main/binary-amd64/Packages.gz
+ e9543b9e89e937475ed93c1c548568e0c57b0b0a             2064 main/binary-arm64/Packages
+ 91d7e1379233ddd0707b9adb1d6ea47435308bad             1138 main/binary-arm64/Packages.gz
+SHA256:
+ 32428d824e68743164db6c0657b30b2052c656ac1c8d7e9a73190c64a9ef9e7c              189 Release
+ c3e57f3b56d0634c94cce23ad245728ef75d8c05f91cdddd51b51db6b50c51f2             2064 main/binary-amd64/Packages
+ 83441402a65162bee46e054ba744288962d0b45f2ae30b556db8f452bc9f7ec6             1142 main/binary-amd64/Packages.gz
+ 86fb5558d59f08f86c1db8fce919e6673b58e5601de3402ff2e0ffd50f49c608             2064 main/binary-arm64/Packages
+ e854b7addbb9b2aed459e8816311c5780d3c00abb687941d36b047072adc4775             1138 main/binary-arm64/Packages.gz
+SHA512:
+ 49b954d7b786baac031b1bca81570aa9277bade2ff9a970e133e25c07e09fca50b35ef95a799f09f02b05a0e52c73518deb5ca1e5b4e3b1445021d47c6ec4c2c              189 Release
+ 027ec30df8db09773613e6a3bf231408409d4498df85b8e4363cf76626384410a79fe99ce6c114f2d4ac508b40ae8e05d3426e3435157e562f8817747eddea33             2064 main/binary-amd64/Packages
+ 31fd0463275121c8f61be2fa14fca298762c3e17dfe937e060cef1719d2b03a986f607dae2e45b3261043cfc3d7c4eb6fa679b4bfb6485b91849f7fe8f9a1580             1142 main/binary-amd64/Packages.gz
+ ecebf64b1d06141863892fab3308e5839647ab914a6b61ae81ac867c95d9e48ea91c1cb9c1cdf012e2383ab566cc8beae09d1919d1178ca2216975f33abea616             2064 main/binary-arm64/Packages
+ 8858d82dfd85a08119e2876d86c0b8d9319aa5e1c7359869f32d9a2d74854c03459bcc1954733b26072d9b94f9da72191181528d60ffd6cb2d5de427389182c6             1138 main/binary-arm64/Packages.gz
