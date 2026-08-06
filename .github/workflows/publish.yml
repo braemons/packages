@@ -1,0 +1,102 @@
+name: Publish archive
+
+# Ingests .debs from the GitHub Releases of every repo in sources.txt and
+# republishes the signed apt archive to gh-pages.
+#
+# Pull-based: source repos hold no credentials and need no workflow changes.
+# The schedule picks up new releases on its own; run the workflow manually to
+# publish immediately after cutting one.
+on:
+  schedule:
+    # Every 30 minutes. Releases are infrequent, so this is about bounding the
+    # wait rather than keeping up with load.
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    # Republish when the archive tooling or the source list changes, not on
+    # every README tweak.
+    paths:
+      - 'bin/**'
+      - 'sources.txt'
+      - '.github/workflows/publish.yml'
+
+permissions:
+  contents: write
+
+# Serialised: two runs pushing to gh-pages at once would race, and the second
+# would be rejected as non-fast-forward.
+concurrency:
+  group: publish-archive
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install archive tooling
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq apt-utils gnupg
+
+      # Seed from what is already published so ingestion is incremental and the
+      # other suite survives untouched.
+      - name: Seed from the published archive
+        run: |
+          mkdir -p archive
+          if git ls-remote --exit-code --heads origin gh-pages >/dev/null 2>&1; then
+            git fetch --depth 1 origin gh-pages
+            git archive FETCH_HEAD | tar -x -C archive
+            echo "seeded $(find archive -name '*.deb' | wc -l) package(s)"
+          else
+            echo "gh-pages does not exist yet — creating a fresh archive"
+          fi
+
+      - name: Ingest releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+          APT_SIGNING_KEY: ${{ secrets.APT_SIGNING_KEY }}
+        run: |
+          if [ -z "$APT_SIGNING_KEY" ]; then
+            echo "::error::APT_SIGNING_KEY is not set — refusing to publish an unsigned archive."
+            exit 1
+          fi
+          bin/ingest.sh archive
+
+      - name: Publish to gh-pages
+        run: |
+          # ingest.sh is a no-op when there is nothing new; skip the push too.
+          if [ -z "$(find archive -name '*.deb' -print -quit)" ]; then
+            echo "archive is empty — nothing to publish"; exit 0
+          fi
+
+          # Keep the public key beside the archive so a machine can bootstrap
+          # trust from the same URL it installs from.
+          cp braemons-archive-keyring.asc archive/
+
+          staged=$(mktemp -d)
+          cp -a archive/. "$staged/"
+
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if git ls-remote --exit-code --heads origin gh-pages >/dev/null 2>&1; then
+            git fetch --depth 1 origin gh-pages
+            git checkout -B gh-pages FETCH_HEAD
+          else
+            git checkout --orphan gh-pages
+            git rm -rqf . 2>/dev/null || true
+          fi
+
+          find . -mindepth 1 -maxdepth 1 -not -name '.git' -not -name 'archive' -exec rm -rf {} +
+          cp -a "$staged/." .
+          # The staging copy is now in place, and gh-pages carries no .gitignore
+          # to keep this untracked scratch dir out of `git add -A`.
+          rm -rf archive
+          # Without this, Pages runs Jekyll and drops files it considers special.
+          touch .nojekyll
+
+          git add -A
+          git commit -m "publish archive ($(date -u +%Y-%m-%dT%H:%MZ))" || {
+            echo "archive unchanged — nothing to publish"; exit 0; }
+          git push origin gh-pages
