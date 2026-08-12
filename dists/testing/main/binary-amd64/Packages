@@ -38,6 +38,26 @@ Description: Linux gpiochip ↔ VTL trigger-line bridge daemon
  the Linux GPIO character device (/dev/gpiochipN).  Compatible with any Linux
  board that exposes GPIO through the kernel character device interface.
 
+Package: braemons-gpiochip-daqd
+Architecture: amd64
+Version: 0.1.0~alpha7-1
+Priority: optional
+Section: science
+Maintainer: Joscha Schmiedt <joscha@schmiedt.dev>
+Installed-Size: 2211
+Depends: libc6 (>= 2.34)
+Filename: pool/testing/main/b/braemons-gpiochip-daqd/braemons-gpiochip-daqd_0.1.0~alpha7-1_amd64.deb
+Size: 706780
+MD5sum: 08715c5c81a5571c5627b0a779676367
+SHA1: ecbed3df03bd7f493492c607b820aae44832e45a
+SHA256: 2ee3c83a12b96d10119b7a8b2d73ef819a08209e181d9d2766f2e92e883da366
+SHA512: 60120df40829b09db3a75b6e1508961098f4384022482363559c9769a2e4a602d9636ad73515a028c1b8efad278a1a4c268fe03f3c06300a3618ef1bd94719fa
+Homepage: https://github.com/braemons/vstimd
+Description: Linux gpiochip ↔ VTL trigger-line bridge daemon
+ gpiochip-daqd bridges VTL shared-memory trigger lines to physical GPIO pins via
+ the Linux GPIO character device (/dev/gpiochipN).  Compatible with any Linux
+ board that exposes GPIO through the kernel character device interface.
+
 Package: braemons-vstimd
 Architecture: amd64
 Version: 0.1.0~alpha4-1
@@ -75,6 +95,29 @@ MD5sum: c6f04c12f1e63876d68e4d90e57c82bd
 SHA1: cb2964622c507e23b63e95092c44045742e7475f
 SHA256: cd91ab72cfad0491744f6c37ca3c242ca252dda4efe10c0d4f243cb82ef4f010
 SHA512: 591cef16015aa09b764371f1b5bef3397fc1235a519db01bd8ca25d113814ca60642f3d273e5fe24e83f91d11bd886e4699aebeb239f489e5016619ae9fc1c36
+Homepage: https://github.com/braemons/vstimd
+Description: Visual stimulus display server for neuroscience experiments
+ vstimd drives a display directly via VK_KHR_display without a compositor,
+ providing sub-millisecond frame timing for psychophysics experiments.
+ Communicates via ZMQ (port 5555) using a protobuf protocol. Supports Jetson
+ Orin Nano, Raspberry Pi 4/5, and desktop NVIDIA/AMD GPUs.
+
+Package: braemons-vstimd
+Architecture: amd64
+Version: 0.1.0~alpha7-1
+Priority: optional
+Section: science
+Maintainer: Joscha Schmiedt <joscha@schmiedt.dev>
+Installed-Size: 16184
+Depends: adduser, libc6 (>= 2.35), libinput10 (>= 1.7.2), libudev1 (>= 183), libvulkan1
+Recommends: vulkan-tools, avahi-daemon
+Suggests: samba
+Filename: pool/testing/main/b/braemons-vstimd/braemons-vstimd_0.1.0~alpha7-1_amd64.deb
+Size: 4729116
+MD5sum: e077646c9f5bd96eb37837816446f444
+SHA1: 59181e98c4dd7a4475e5e4947bb17b1dbe63be4c
+SHA256: ca360885c7bf1bbcf96141fa30a3637241e09e0fab1afbcf668b21f521861221
+SHA512: 570793b5844c0d197d7517ae09763bded2e63fa8e2c3c12a71ca67f555d9bb761fbb1575e68504cd94abd10e62b18ad9ea352f66d6d8dc509da3d67cb6509c80
 Homepage: https://github.com/braemons/vstimd
 Description: Visual stimulus display server for neuroscience experiments
  vstimd drives a display directly via VK_KHR_display without a compositor,
