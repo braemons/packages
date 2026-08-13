@@ -1,0 +1,11 @@
+# Third-party packages vendored directly into every suite's pool, independent
+# of sources.txt's per-repo release pull. For a package pinned to a specific
+# known-good version because a newer upstream build regresses hardware a
+# braemons rig depends on -- not for anything that just tracks upstream.
+#
+# One "package version arch url" per line, whitespace-separated. The url must
+# serve exactly that package/version/arch: ingest.sh downloads it, checks its
+# control fields match this line, and refuses to vendor it otherwise.
+#
+# package               version                 arch    url
+mesa-vulkan-drivers     25.0.7-2+rpt4+deb13u1   arm64   http://archive.raspberrypi.com/debian/pool/main/m/mesa/mesa-vulkan-drivers_25.0.7-2+rpt4+deb13u1_arm64.deb

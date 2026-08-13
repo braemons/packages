@@ -70,6 +70,31 @@ That is the whole integration. The source repo needs no workflow changes and
 holds no credentials — it just attaches `.deb`s to its GitHub Releases, and this
 archive pulls them.
 
+## Pinning a third-party package
+
+Sometimes a rig needs to stay off a package this archive doesn't build at all —
+a specific upstream Debian/vendor build, held at a known-good version because a
+newer one regresses hardware a rig depends on. That's a different problem from
+`sources.txt`: there's no GitHub Release to pull from, and the pin has to reach
+a rig regardless of whether it tracks `stable` or `testing`.
+
+One line in [`pinned-packages.txt`](pinned-packages.txt):
+
+```
+mesa-vulkan-drivers  25.0.7-2+rpt4+deb13u1  arm64  http://archive.raspberrypi.com/debian/pool/main/m/mesa/mesa-vulkan-drivers_25.0.7-2+rpt4+deb13u1_arm64.deb
+```
+
+`ingest.sh` downloads the `.deb`, checks its control fields (`Package`/
+`Version`/`Architecture`) match the line before vendoring it — a typo'd version
+or URL fails the run rather than silently shipping the wrong build under a
+filename that claims otherwise — and copies it into every suite's pool, since
+the hardware issue a pin works around doesn't care which channel a rig tracks.
+
+Once pinned, `apt upgrade` on a rig can never move that package off the pinned
+version: this archive is the only source rigs are configured to trust, and it
+never publishes anything else under that name. Un-pin by deleting the line and
+the corresponding pool files.
+
 ## How publishing works
 
 `.github/workflows/publish.yml` runs on a 30-minute schedule, on pushes that
@@ -78,9 +103,10 @@ touch the tooling, and on demand via **Run workflow**:
 1. Seeds a working copy from the published `gh-pages` branch, so ingestion is
    incremental and the other suite survives untouched.
 2. Reads `sources.txt` and downloads `.deb` assets from each repo's releases.
-3. Skips anything already in the pool; files the rest into `stable` or `testing`
-   by version.
-4. Regenerates `Packages`/`Release` for the affected suites, signs `InRelease`
+3. Reads `pinned-packages.txt` and vendors each entry into every suite.
+4. Skips anything already in the pool; files release `.deb`s into `stable` or
+   `testing` by version.
+5. Regenerates `Packages`/`Release` for the affected suites, signs `InRelease`
    and `Release.gpg`, and pushes to `gh-pages`.
 
 Filenames are rebuilt from each package's control fields
