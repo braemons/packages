@@ -1,0 +1,51 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Architectures: amd64 arm64
+Codename: stable
+Components: main
+Date: Thu, 13 Aug 2026 12:30:23 +0000
+Description: braemons packages (stable)
+Label: braemons
+Origin: braemons
+Suite: stable
+MD5Sum:
+ 423c3d1d78fc40083be1297ca474fcd3              186 Release
+ d41d8cd98f00b204e9800998ecf8427e                0 main/binary-amd64/Packages
+ 362ff53d0c2bf060e2a2791df26eabe7               29 main/binary-amd64/Packages.gz
+ 518d9c81ba9d3bf31ed156ca6e525065             1304 main/binary-arm64/Packages
+ 3e3d5563195be81e783ef92845535307              773 main/binary-arm64/Packages.gz
+SHA1:
+ c6eeea669f620a6d733fbb9c25586dd6424eeeb0              186 Release
+ da39a3ee5e6b4b0d3255bfef95601890afd80709                0 main/binary-amd64/Packages
+ c999e768d5063e9308c78411f904c78f00fed933               29 main/binary-amd64/Packages.gz
+ 9cf4ed733baaab6e1e2b6b405905cf9b53c187e0             1304 main/binary-arm64/Packages
+ 3c3ceefe4d41bd403626dabcabb2f06e74392a47              773 main/binary-arm64/Packages.gz
+SHA256:
+ c0ce0eddc2f4f7c5bbdd04369e2859e152e0c9888344e769a309f6f4cc6d337c              186 Release
+ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855                0 main/binary-amd64/Packages
+ 114d995c5fa3942ab03a170b42d8fcffcf02290a82c58fe2c26ff9a0ef87aa5c               29 main/binary-amd64/Packages.gz
+ c789283c38fbf857632750c4b5fc1e8ddd0269384fcce14467c77683afa6480f             1304 main/binary-arm64/Packages
+ dd93d768fa742a1487190ca67ac6af92d5757ca790eaa6f214edbb6db4c5224d              773 main/binary-arm64/Packages.gz
+SHA512:
+ 6fb2f0aaf8ddcb8eb192b5b2dc97591d855eec07f4bb7f9b2de3cf1cd111a0b1a85c9fca74ca05f65e428cc6188050a4b6468cc9527f52f9b971d75e05e24cbd              186 Release
+ cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e                0 main/binary-amd64/Packages
+ 5f2dd605e83685cdf829ad1a91a51e421d113f3f3dfe89ab9ffc4a164704d395a585ba1cfc2529f57becbcd9555e0fbcc6ada49bf77aa3fda9d25d7e31225d75               29 main/binary-amd64/Packages.gz
+ 12a2791b5a29f079967da25bb2e2de5431e3cbf8911754edf33d9d93a5d19c82b910268ab20030996e08bdba6a34ff20ae1ac4fb23e052deab444a150ad690a4             1304 main/binary-arm64/Packages
+ b51d7e131fdd9b98fdceba77cde84b2a85f5eb1651ff1ce12ed822dec75460e8d26a0f80adff1b7a4930b3061e00acb8ef71992ec3c053fa8f509bbffd822bec              773 main/binary-arm64/Packages.gz
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEBDXm7cGfCF7w9i8iorzg/wRRWcUFAmp9uN8ACgkQorzg/wRR
+WcUYdw/7BpD/NQmiUefN6Dw4v3sDYZfB3MHcCdkz/dmZwBAciDMn8fB2X8w/QM6L
+NTtTbK23CXsFI9jAxyCoIWMIH/fPdwt1Ov1XwdF1lHLvLX8Q4btm+qkBXRXwKQlY
+JelUIqv1x4P68vGSu0bFrhk+ywMijJr8poM+geT7r1MjoEcm7qmFfgY2GvyvKjDK
+WwF46JS6P+3z5FS7YPANrqeC7bTQlm2rFE/qOCcEFh3EB0C7u2Q44bKnt1DUIGGM
+tlHwENgGjnAzZVQQXE+/M4KauU7sF2HcjlMgzMOMLhfKY8aOvnjk5JgQdqADaDLs
+C+FDE3c502vfQjMpWPcbXM3tL5iBOEMDgwCTQKUmhZRSvrFLo6B+WTsRROwJ3uhl
+SujjPMCd3YM+o9cjKyircooiMnC/z3h4MVdKiZLw86zwo4WHLHhTvWzFMYK30QYB
+5FRLMAClgqVBr/cxysM5hvnaARDsVtE8zTr/S5HKklcI1DUnUjQopLUoHnurRSRP
+VRwGrspvgZnlX/Mv+smCdLefZTSKf4/qRAHj1eHqvodjMLJ/HsknWJDRGwdIxO3T
+gZ0P+LEYTbSPsmbk9JNzKSpV8DPP3wA1AwTO4lMmBBHNE15EiB9cuDHiXddrRWWq
+tdVSwZxmmynuzrPTNCEUlJRkXoIKK3zE8Y43ECGLz6XFHmA+SQ4=
+=cIZF
+-----END PGP SIGNATURE-----

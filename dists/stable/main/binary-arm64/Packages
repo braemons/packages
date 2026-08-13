@@ -1,0 +1,22 @@
+Package: mesa-vulkan-drivers
+Architecture: arm64
+Version: 25.0.7-2+rpt4+deb13u1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: mesa
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 71444
+Provides: vulkan-icd
+Depends: libvulkan1, libc6 (>= 2.39), libdrm-amdgpu1 (>= 2.4.121), libdrm2 (>= 2.4.121), libelf1t64 (>= 0.142), libexpat1 (>= 2.0.1), libgcc-s1 (>= 4.2), libllvm19 (>= 1:19.1.0), libstdc++6 (>= 11), libwayland-client0 (>= 1.24.0), libx11-xcb1, libxcb-dri3-0 (>= 1.17.0), libxcb-present0 (>= 1.17.0), libxcb-randr0 (>= 1.13), libxcb-shm0, libxcb-sync1, libxcb-xfixes0, libxcb1 (>= 1.9.2), libxshmfence1, libzstd1 (>= 1.5.5), zlib1g (>= 1:1.2.3.4)
+Filename: pool/stable/main/m/mesa-vulkan-drivers/mesa-vulkan-drivers_25.0.7-2+rpt4+deb13u1_arm64.deb
+Size: 16716168
+MD5sum: 89942540f6fc35d64608c515de408ee5
+SHA1: 7e847039635c1be84731565bcdea4dc3eb784079
+SHA256: 213bb8fd2320c1d1318f4bada17e89710aa548140a799ec34e72e84460c976d2
+SHA512: 6454f451f8e6e0d440956114996bb9274d90ead320139b4eb335654d09f7c70bf3a1fab959d1ff983bc5f6867dea66c6b4a2d2dd544116aff48ba5ac5e2ff9de
+Homepage: https://mesa3d.org/
+Description: Mesa Vulkan graphics drivers
+ Vulkan is a low-overhead 3D graphics and compute API. This package
+ includes Vulkan drivers provided by the Mesa project.
+
