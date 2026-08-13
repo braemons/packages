@@ -1,6 +1,7 @@
 #!/bin/bash
 # Pull .debs from the GitHub Releases of every repo in sources.txt into the
-# archive, then reindex whichever suites changed.
+# archive, vendor any pinned third-party packages, then reindex whichever
+# suites changed.
 #
 #   bin/ingest.sh <archive-dir>
 #
@@ -8,12 +9,19 @@
 # workflow changes. Adding a new daemon to the archive is one line in
 # sources.txt, not a deploy key and a copy of the signing key.
 #
-# Requires: gh (authenticated), dpkg-deb, apt-ftparchive, gpg.
+# Requires: gh (authenticated), dpkg-deb, apt-ftparchive, gpg, curl.
 set -euo pipefail
 
 ARCHIVE=${1:?usage: ingest.sh <archive-dir>}
 HERE=$(cd "$(dirname "$0")" && pwd)
 SOURCES=${SOURCES:-$HERE/../sources.txt}
+PINNED=${PINNED:-$HERE/../pinned-packages.txt}
+
+# Every suite a pinned package is vendored into. Kept as a fixed list rather
+# than derived from whatever's already in the archive: a pinned package must
+# reach a suite before that suite has ever seen it (e.g. a brand new archive,
+# or the first run after a suite's pool was pruned).
+SUITES="stable testing"
 
 staging=$(mktemp -d)
 trap 'rm -rf "$staging"' EXIT
@@ -72,6 +80,50 @@ while read -r repo; do
         done
     done
 done < "$SOURCES"
+
+# ── Pinned third-party packages ─────────────────────────────────────────────
+# Vendored straight from a fixed URL rather than pulled from a GitHub Release:
+# these aren't braemons packages, they're a specific upstream build a rig
+# needs to stay on because a newer one regresses hardware. Placed into every
+# suite unconditionally — the hardware issue a pin works around doesn't care
+# which channel a rig tracks.
+if [ -f "$PINNED" ]; then
+    while read -r pkg ver arch url; do
+        # Skip blanks and comments.
+        case "$pkg" in ''|\#*) continue ;; esac
+        echo "==> $pkg $ver $arch (pinned)"
+
+        canonical="${pkg}_${ver}_${arch}.deb"
+
+        for suite in $SUITES; do
+            dest="$ARCHIVE/pool/$suite/main/${pkg:0:1}/$pkg/$canonical"
+            if [ -e "$dest" ]; then
+                continue
+            fi
+
+            tmp="$staging/$canonical"
+            curl -fsSL -o "$tmp" "$url"
+
+            # Trust but verify: a typo'd version/url in pinned-packages.txt
+            # must fail loudly here, not silently vendor the wrong build
+            # under a filename that claims otherwise.
+            got_pkg=$(dpkg-deb -f "$tmp" Package)
+            got_ver=$(dpkg-deb -f "$tmp" Version)
+            got_arch=$(dpkg-deb -f "$tmp" Architecture)
+            if [ "$got_pkg" != "$pkg" ] || [ "$got_ver" != "$ver" ] || [ "$got_arch" != "$arch" ]; then
+                echo "    ! $url doesn't match: got $got_pkg $got_ver $got_arch, expected $pkg $ver $arch" >&2
+                rm -f "$tmp"
+                exit 1
+            fi
+
+            mkdir -p "$(dirname "$dest")"
+            mv "$tmp" "$dest"
+            echo "    + [$suite] $canonical"
+            touched_suites[$suite]=1
+            added=$((added + 1))
+        done
+    done < "$PINNED"
+fi
 
 if [ "$added" -eq 0 ]; then
     echo "==> nothing new to ingest"
