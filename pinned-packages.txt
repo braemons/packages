@@ -8,4 +8,3 @@
 # control fields match this line, and refuses to vendor it otherwise.
 #
 # package               version                 arch    url
-mesa-vulkan-drivers     25.0.7-2+rpt4+deb13u1   arm64   http://archive.raspberrypi.com/debian/pool/main/m/mesa/mesa-vulkan-drivers_25.0.7-2+rpt4+deb13u1_arm64.deb
