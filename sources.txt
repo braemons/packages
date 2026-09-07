@@ -2,3 +2,4 @@
 # One "owner/repo" per line. Adding a daemon is a one-line change here —
 # the source repo itself needs no workflow changes and holds no credentials.
 braemons/vstimd
+braemons/statemachined
