@@ -340,3 +340,26 @@ Description: Visual stimulus display server for neuroscience experiments
  Communicates via ZMQ (port 5555) using a protobuf protocol. Supports Jetson
  Orin Nano, Raspberry Pi 4/5, and desktop NVIDIA/AMD GPUs.
 
+Package: statemachined
+Architecture: amd64
+Version: 0.1.0~alpha1-1
+Priority: optional
+Section: science
+Maintainer: Joscha Schmiedt <joscha.schmiedt@gmail.com>
+Bugs: https://github.com/braemons/statemachined/issues
+Installed-Size: 140118
+Depends: systemd
+Recommends: logrotate, udev
+Filename: pool/testing/main/s/statemachined/statemachined_0.1.0~alpha1-1_amd64.deb
+Size: 48887270
+MD5sum: 1b72ca9883d78b15901d7f02ec0f19ac
+SHA1: 8859fd62377ce32c17d67fedd1802785241fc832
+SHA256: e033355f1e75a420e1f68f3167ab9d367fef212af0f157529313404f7ed512cd
+SHA512: f12e72b2719236e1aebb3049c35d4eee42fdd643d4e88d51e9c2c879ae0f8d51d5601a73770000cdd00a5e3d2dac24e69ef407482cd4bd31bae92c6a47a9276c
+Homepage: https://github.com/braemons/statemachined
+Description: The host side of one statemachined device.
+ Owns the serial link to a state machine board: uploads graphs, arms trials,
+ reassembles outcomes, keeps the trace, and serves an HTTP API and a web UI
+ for all of it. One daemon per device.
+License: LGPL-3.0-or-later
+

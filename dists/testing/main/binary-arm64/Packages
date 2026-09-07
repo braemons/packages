@@ -362,3 +362,26 @@ Description: Mesa Vulkan graphics drivers
  Vulkan is a low-overhead 3D graphics and compute API. This package
  includes Vulkan drivers provided by the Mesa project.
 
+Package: statemachined
+Architecture: arm64
+Version: 0.1.0~alpha1-1
+Priority: optional
+Section: science
+Maintainer: Joscha Schmiedt <joscha.schmiedt@gmail.com>
+Bugs: https://github.com/braemons/statemachined/issues
+Installed-Size: 125490
+Depends: systemd
+Recommends: logrotate, udev
+Filename: pool/testing/main/s/statemachined/statemachined_0.1.0~alpha1-1_arm64.deb
+Size: 43738108
+MD5sum: 400f7d85e84e80b5becf9c4e7ac1ee78
+SHA1: 01054cdf95e8874ec995507c9bc43e8ecb0bd1f5
+SHA256: 7a9dcb691dd3c97dc7037e860446341739720773d5cd6b2a185a059da0a8f8f8
+SHA512: f689f80d15aec317767a951f9f983040b3ba70a676e28a18989e2144aca8bc58da33137df075a5629f9a09cbc2550a0ab9b79bbdd5cffb97da8aa2e4387b3641
+Homepage: https://github.com/braemons/statemachined
+Description: The host side of one statemachined device.
+ Owns the serial link to a state machine board: uploads graphs, arms trials,
+ reassembles outcomes, keeps the trace, and serves an HTTP API and a web UI
+ for all of it. One daemon per device.
+License: LGPL-3.0-or-later
+
