@@ -158,6 +158,32 @@ Description: Linux gpiochip ↔ VTL trigger-line bridge daemon
  the Linux GPIO character device (/dev/gpiochipN).  Compatible with any Linux
  board that exposes GPIO through the kernel character device interface.
 
+Package: braemons-statemachined
+Architecture: arm64
+Version: 0.2.0~alpha1-1
+Priority: optional
+Section: science
+Maintainer: Joscha Schmiedt <joscha.schmiedt@gmail.com>
+Bugs: https://github.com/braemons/statemachined/issues
+Installed-Size: 125697
+Provides: statemachined
+Depends: systemd
+Recommends: logrotate, udev
+Conflicts: statemachined
+Replaces: statemachined
+Filename: pool/testing/main/b/braemons-statemachined/braemons-statemachined_0.2.0~alpha1-1_arm64.deb
+Size: 43814618
+MD5sum: b11af6e6b185a8ef7c94e95472edf30e
+SHA1: ab5890c8b30a91fb7fd33ea9a0beb28e39482c09
+SHA256: a89a5bd9f7a69991c6d0d03e34f442085b1f932acb31ba20e974c39b2763f215
+SHA512: be9b930476a318fa28a7f3738af2b18959244eca895107642bbff538745f440af47ff73038dd89d038ca4b0669f9689e76a24aee274ead341e02fa862e075bcd
+Homepage: https://github.com/braemons/statemachined
+Description: The host side of one statemachined device.
+ Owns the serial link to a state machine board: uploads graphs, arms trials,
+ reassembles outcomes, keeps the trace, and serves an HTTP API and a web UI
+ for all of it. One daemon per device.
+License: LGPL-3.0-or-later
+
 Package: braemons-vstimd
 Architecture: arm64
 Version: 0.1.0~alpha10-1
