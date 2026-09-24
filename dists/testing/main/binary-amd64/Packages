@@ -204,6 +204,32 @@ Description: The host side of one statemachined device.
  for all of it. One daemon per device.
 License: LGPL-3.0-or-later
 
+Package: braemons-statemachined
+Architecture: amd64
+Version: 0.3.0~alpha1-1
+Priority: optional
+Section: science
+Maintainer: Joscha Schmiedt <joscha.schmiedt@gmail.com>
+Bugs: https://github.com/braemons/statemachined/issues
+Installed-Size: 179077
+Provides: statemachined
+Depends: systemd
+Recommends: logrotate, udev
+Conflicts: statemachined
+Replaces: statemachined
+Filename: pool/testing/main/b/braemons-statemachined/braemons-statemachined_0.3.0~alpha1-1_amd64.deb
+Size: 42087508
+MD5sum: d7d65bd94e726756e2309bd040c4b3bd
+SHA1: 5d4e6911f355015d3296e554d9f3f8098533e46d
+SHA256: 330b62a2c7a47f1399373aa87044350d1ce1e67771bbbe75fb70b78012d38b05
+SHA512: 15b32d67c5914bdd9b6c37feabffb39d3d3917cbeb3f2c8d820d0db7a2fd23bd10c0698933cf3795acc2afc6994f609347a5f4ad69368cfb8e5032bd1276a68b
+Homepage: https://github.com/braemons/statemachined
+Description: The host side of one statemachined device.
+ Owns the serial link to a state machine board: uploads graphs, arms trials,
+ reassembles outcomes, keeps the trace, and serves a gRPC API and a web UI
+ for all of it. One daemon per device.
+License: AGPL-3.0-or-later AND LGPL-3.0-or-later AND GPL-3.0-or-later
+
 Package: braemons-vstimd
 Architecture: amd64
 Version: 0.1.0~alpha10-1
