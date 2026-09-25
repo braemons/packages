@@ -3,3 +3,6 @@
 # the source repo itself needs no workflow changes and holds no credentials.
 braemons/vstimd
 braemons/statemachined
+braemons/triald
+braemons/mousewheeld
+braemons/rig
