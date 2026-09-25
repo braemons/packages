@@ -1,3 +1,27 @@
+Package: braemons-console
+Architecture: all
+Version: 0.3.0~alpha1
+Priority: optional
+Section: science
+Maintainer: Joscha Schmiedt <joscha.schmiedt@gmail.com>
+Installed-Size: 38
+Depends: systemd, nodejs (>= 18)
+Recommends: avahi-utils
+Filename: pool/testing/main/b/braemons-console/braemons-console_0.3.0~alpha1_all.deb
+Size: 16014
+MD5sum: b6316da41152d89b36e202e1e4af327c
+SHA1: 086ab60a8e777ab1dfd533837f086365e80cf5a2
+SHA256: deb1093bc36d50331c18b653db8afa3b42e1e03bbac3344978bfbd13bea45ae8
+SHA512: c981e8f1e9f7aaae0e2868c869a832e0eaad7195ecc873644b2ec29de26573ff9b3ae2861dd60b801833162d42a39d81b679616e33ca8594c23979150f02488b
+Homepage: https://github.com/braemons/console
+Description: One page for every daemon on a braemons rig.
+ The display, the state machine, the trial logic and the wheel together.
+ Discovers the daemons over mDNS and lays out the
+ panels each of them serves. Holds no domain logic and proxies no daemon.
+ Listens on http://127.0.0.1:9000; set CONSOLE_HOST in
+ /etc/braemons/console.env to reach it from other machines.
+License: AGPL-3.0-or-later
+
 Package: braemons-gpiochip-daqd
 Architecture: arm64
 Version: 0.1.0~alpha10-1
