@@ -243,6 +243,28 @@ Description: The locomotion input of a braemons rig: a running wheel, read and p
  panels at /elements/.
 License: AGPL-3.0-or-later
 
+Package: braemons-rig
+Architecture: all
+Version: 0.3.0~alpha1
+Priority: optional
+Section: science
+Maintainer: Joscha Schmiedt <joscha.schmiedt@gmail.com>
+Installed-Size: 8
+Depends: systemd
+Recommends: avahi-daemon
+Filename: pool/testing/main/b/braemons-rig/braemons-rig_0.3.0~alpha1_all.deb
+Size: 5412
+MD5sum: a0d8341cf283fb087c99f797d188080d
+SHA1: 6f43d1c061944d5cbe45ea820ad961ff97525fc3
+SHA256: c13c5d0615d99b8a999e1a6faeb19ec1a79d54dcddc9b66b5146679ec37b91c1
+SHA512: 6fd620a8691f697aa6f9b557308ace353f19355a66ae47f6ce0a0b0995acf8e9071f9815e98c099112b29dd541b96343dc42cd4600cf8eb5dd792f7b231717dc
+Homepage: https://github.com/braemons/rig
+Description: A braemons rig: the box's name and the directories every daemon shares.
+ Names the box braemons-XXXXXX after its network interface's MAC address at
+ boot, and creates /etc/braemons and /var/lib/braemons. Installed on any box
+ that runs a braemons daemon; the daemons themselves do not depend on it.
+License: AGPL-3.0-or-later
+
 Package: braemons-statemachined
 Architecture: amd64
 Version: 0.2.0~alpha1-1
@@ -320,6 +342,26 @@ Description: The host side of one statemachined device.
  reassembles outcomes, keeps the trace, and serves a gRPC API and a web UI
  for all of it. One daemon per device.
 License: AGPL-3.0-or-later AND LGPL-3.0-or-later AND GPL-3.0-or-later
+
+Package: braemons-tools
+Architecture: amd64
+Version: 0.3.0~alpha1
+Priority: optional
+Section: science
+Maintainer: Joscha Schmiedt <joscha.schmiedt@gmail.com>
+Installed-Size: 128849
+Filename: pool/testing/main/b/braemons-tools/braemons-tools_0.3.0~alpha1_amd64.deb
+Size: 46919232
+MD5sum: 1ab3c16be07835162579308fd0292045
+SHA1: 18f54fdfab3428d8403480415516b4e823a5852e
+SHA256: afc7469607b96ebfb93b8be53d762ce21cb471f73743e74970e9490a3d215eeb
+SHA512: 7efb32bd59d024ef8524a6dd5b45ba06709bb64dbe1cbf51fa1cd41fccf58286cf6e062117d267bb5ada2a78f68e16d8fd15b987654cc5b5c9b14dc31745df19
+Homepage: https://github.com/braemons/rig
+Description: Command-line tools for a braemons rig: vstimctl, statemachinectl,
+ mousewheelctl and trialctl. They follow one set of rules, so every tool
+ takes --rig (or ), prints JSON and returns the same exit
+ statuses. They run from a Python of their own under /opt/braemons/tools.
+License: AGPL-3.0-or-later
 
 Package: braemons-triald
 Architecture: amd64
@@ -571,6 +613,28 @@ Description: Visual stimulus display server for neuroscience experiments
  providing sub-millisecond frame timing for psychophysics experiments.
  Communicates via ZMQ (port 5555) using a protobuf protocol. Supports Jetson
  Orin Nano, Raspberry Pi 4/5, and desktop NVIDIA/AMD GPUs.
+
+Package: braemons
+Architecture: all
+Version: 0.3.0~alpha1
+Priority: optional
+Section: science
+Maintainer: Joscha Schmiedt <joscha.schmiedt@gmail.com>
+Installed-Size: 0
+Depends: braemons-rig (= 0.3.0~alpha1), braemons-tools (>= 0.3.0~alpha1)
+Recommends: braemons-vstimd, braemons-statemachined, braemons-mousewheeld, braemons-triald, braemons-console
+Filename: pool/testing/main/b/braemons/braemons_0.3.0~alpha1_all.deb
+Size: 776
+MD5sum: 633c7bb039b8dfbf43cfc23df0e60dde
+SHA1: 29e9940b3a226617a354f09eb940f4f19050f968
+SHA256: 29bc408852b9849b2740a50223dc522fd23c12c9b02f8e8196a4fd8c4c3a045d
+SHA512: 93b2ba9450c6c977ed362625f37166ce4cb8fa2874962461fb5fc3e2889d2fae9c443437f53954a4e1168d483af2453c728c4764c1128483076d5734ca964006
+Homepage: https://github.com/braemons/rig
+Description: A whole braemons rig: the rig itself, the command-line tools, the four
+ daemons and the console (recommended, so each can be left out). vstimd drives
+ the display, statemachined the state machine board, mousewheeld the running
+ wheel, triald the trial logic, and the console shows all four on one page.
+License: AGPL-3.0-or-later
 
 Package: mousewheeld
 Architecture: amd64
