@@ -23,6 +23,9 @@ PINNED=${PINNED:-$HERE/../pinned-packages.txt}
 # or the first run after a suite's pool was pruned).
 SUITES="stable testing"
 
+# GitHub's hard limit on one file in a push, and so on one package here.
+MAX_PACKAGE_BYTES=$((100 * 1024 * 1024))
+
 staging=$(mktemp -d)
 trap 'rm -rf "$staging"' EXIT
 
@@ -49,6 +52,18 @@ while read -r repo; do
 
         for deb in "$dl"/*.deb; do
             [ -e "$deb" ] || continue
+
+            # The archive is a git branch served by GitHub Pages, and GitHub
+            # refuses any file over 100 MiB in a push. One such package would
+            # reject the whole publish -- every other package with it -- so it
+            # is left out here, loudly, and the release that made it is the
+            # thing to fix.
+            size=$(stat -c %s "$deb")
+            if [ "$size" -ge "$MAX_PACKAGE_BYTES" ]; then
+                echo "    ! skipped $(basename "$deb") ($tag): $((size / 1048576)) MiB, over GitHub's 100 MiB file limit" >&2
+                echo "::warning::$repo $tag: $(basename "$deb") is over GitHub's 100 MiB file limit and is not in the archive"
+                continue
+            fi
 
             pkg=$(dpkg-deb -f "$deb" Package)
             ver=$(dpkg-deb -f "$deb" Version)
