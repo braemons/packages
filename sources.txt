@@ -6,3 +6,4 @@ braemons/statemachined
 braemons/triald
 braemons/mousewheeld
 braemons/rig
+braemons/console
