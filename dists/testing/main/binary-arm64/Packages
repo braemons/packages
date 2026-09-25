@@ -198,6 +198,27 @@ Description: Linux gpiochip ↔ VTL trigger-line bridge daemon
  the Linux GPIO character device (/dev/gpiochipN).  Compatible with any Linux
  board that exposes GPIO through the kernel character device interface.
 
+Package: braemons-mousewheeld
+Architecture: arm64
+Version: 0.3.0~alpha2
+Priority: optional
+Section: science
+Maintainer: braemons
+Installed-Size: 158117
+Depends: systemd
+Filename: pool/testing/main/b/braemons-mousewheeld/braemons-mousewheeld_0.3.0~alpha2_arm64.deb
+Size: 33980892
+MD5sum: 43317cee657f576d0741f45a55118bdb
+SHA1: 8d9288b76076aac31b096bc39e0fda4892806403
+SHA256: ef63706bc91a47bf18245611e7cc76dad54f26854099b2c3e7b043d1908beb1d
+SHA512: 7739bc895be30dba8bf6636654170a31a2835652b794cd8610eba6e68dbac1eff0dc266b218a13525462a1ba78d99eacac83d1ab9a23ceadb7c0c89d794ef09e
+Homepage: https://github.com/braemons/mousewheeld
+Description: The locomotion input of a braemons rig: a running wheel, read and published.
+ Publishes position into shared memory for vstimd to read every frame, fires
+ distance-triggered TTL lines through its board, and serves its own console
+ panels at /elements/.
+License: AGPL-3.0-or-later
+
 Package: braemons-statemachined
 Architecture: arm64
 Version: 0.2.0~alpha1-1
@@ -243,6 +264,32 @@ MD5sum: 72cbe05b80d7e7e847bcc1cf8989a3ea
 SHA1: e246590588030c80aaf0ef431b191123b81ef033
 SHA256: b4ec85d6847d3af2cd89ec40a39e9b28068ae2c300662a9a1be490896b1e9f86
 SHA512: 60dc5d32ee845d954edf78f8ecc6bce2e02ec6dcaeb4e2682aa1414b3a334ed5e7f4f3c7d11ff8376115e20aea50a904168adc22afba7503f29fe8bb1a807bdf
+Homepage: https://github.com/braemons/statemachined
+Description: The host side of one statemachined device.
+ Owns the serial link to a state machine board: uploads graphs, arms trials,
+ reassembles outcomes, keeps the trace, and serves a gRPC API and a web UI
+ for all of it. One daemon per device.
+License: AGPL-3.0-or-later AND LGPL-3.0-or-later AND GPL-3.0-or-later
+
+Package: braemons-statemachined
+Architecture: arm64
+Version: 0.3.0~alpha2-1
+Priority: optional
+Section: science
+Maintainer: Joscha Schmiedt <joscha.schmiedt@gmail.com>
+Bugs: https://github.com/braemons/statemachined/issues
+Installed-Size: 175868
+Provides: statemachined
+Depends: systemd
+Recommends: logrotate, udev
+Conflicts: statemachined
+Replaces: statemachined
+Filename: pool/testing/main/b/braemons-statemachined/braemons-statemachined_0.3.0~alpha2-1_arm64.deb
+Size: 37733026
+MD5sum: b2f93bda5ed0061fb3672757ebaa5a4c
+SHA1: 9bf4ff3ae69ad587fc01483a433902267adffc5f
+SHA256: 0e29981918cf0c6ab7657e6672674a5c486eaea571331d2031f16b974be8391b
+SHA512: a3c5270a1bd2dc1891ebad5c214314d3d0714ed8f78c6ccbe0f7abffdbc782273e1c44366576feac0388088f5c2397ec08473c369d46d2be7948debeeaaaa009
 Homepage: https://github.com/braemons/statemachined
 Description: The host side of one statemachined device.
  Owns the serial link to a state machine board: uploads graphs, arms trials,
@@ -499,6 +546,27 @@ Homepage: https://mesa3d.org/
 Description: Mesa Vulkan graphics drivers
  Vulkan is a low-overhead 3D graphics and compute API. This package
  includes Vulkan drivers provided by the Mesa project.
+
+Package: mousewheeld
+Architecture: arm64
+Version: 0.3.0~alpha1
+Priority: optional
+Section: science
+Maintainer: braemons
+Installed-Size: 141035
+Depends: systemd
+Filename: pool/testing/main/m/mousewheeld/mousewheeld_0.3.0~alpha1_arm64.deb
+Size: 30377956
+MD5sum: fe53e45cb3a01f846855425ce5fc5ce5
+SHA1: 5669e15a701f94ff51651d9f06cfe784a167d386
+SHA256: 4eacc532cac2fb06d4882678e4eb03353380a840498ced8026601e10edec437b
+SHA512: d06f91e6aa03ffaceda7af73f96e46ff927e383fd65e0b255fe02ff0e597682895967f8d3929d8ac07eac57d03bb5c256cbb74b058dcf3f92ad3149d3051d1db
+Homepage: https://github.com/braemons/mousewheeld
+Description: The locomotion input of a braemons rig: a running wheel, read and published.
+ Publishes position into shared memory for vstimd to read every frame, fires
+ distance-triggered TTL lines through its board, and serves its own console
+ panels at /elements/.
+License: AGPL-3.0-or-later
 
 Package: statemachined
 Architecture: arm64

@@ -198,6 +198,27 @@ Description: Linux gpiochip ↔ VTL trigger-line bridge daemon
  the Linux GPIO character device (/dev/gpiochipN).  Compatible with any Linux
  board that exposes GPIO through the kernel character device interface.
 
+Package: braemons-mousewheeld
+Architecture: amd64
+Version: 0.3.0~alpha2
+Priority: optional
+Section: science
+Maintainer: braemons
+Installed-Size: 159416
+Depends: systemd
+Filename: pool/testing/main/b/braemons-mousewheeld/braemons-mousewheeld_0.3.0~alpha2_amd64.deb
+Size: 37761548
+MD5sum: dca1870f51db7fc5377f0e7937b0e91e
+SHA1: e5a42f2f192d538d4f8e870fffe40b1ebeabf723
+SHA256: 572365d0823fdcf1755d0a83d6104ca087ebbaaf6efa5a9196c3f05f34359bca
+SHA512: 8bd9e8776a8d08f552b22ac8a5a9f13be136eb1ab8905b2ce0c2227c87e80b4885ef6799bddb3ee58137ec77fd4f4773052a47148b19aae3875756fc2ddd34c7
+Homepage: https://github.com/braemons/mousewheeld
+Description: The locomotion input of a braemons rig: a running wheel, read and published.
+ Publishes position into shared memory for vstimd to read every frame, fires
+ distance-triggered TTL lines through its board, and serves its own console
+ panels at /elements/.
+License: AGPL-3.0-or-later
+
 Package: braemons-statemachined
 Architecture: amd64
 Version: 0.2.0~alpha1-1
@@ -243,6 +264,32 @@ MD5sum: d7d65bd94e726756e2309bd040c4b3bd
 SHA1: 5d4e6911f355015d3296e554d9f3f8098533e46d
 SHA256: 330b62a2c7a47f1399373aa87044350d1ce1e67771bbbe75fb70b78012d38b05
 SHA512: 15b32d67c5914bdd9b6c37feabffb39d3d3917cbeb3f2c8d820d0db7a2fd23bd10c0698933cf3795acc2afc6994f609347a5f4ad69368cfb8e5032bd1276a68b
+Homepage: https://github.com/braemons/statemachined
+Description: The host side of one statemachined device.
+ Owns the serial link to a state machine board: uploads graphs, arms trials,
+ reassembles outcomes, keeps the trace, and serves a gRPC API and a web UI
+ for all of it. One daemon per device.
+License: AGPL-3.0-or-later AND LGPL-3.0-or-later AND GPL-3.0-or-later
+
+Package: braemons-statemachined
+Architecture: amd64
+Version: 0.3.0~alpha2-1
+Priority: optional
+Section: science
+Maintainer: Joscha Schmiedt <joscha.schmiedt@gmail.com>
+Bugs: https://github.com/braemons/statemachined/issues
+Installed-Size: 178760
+Provides: statemachined
+Depends: systemd
+Recommends: logrotate, udev
+Conflicts: statemachined
+Replaces: statemachined
+Filename: pool/testing/main/b/braemons-statemachined/braemons-statemachined_0.3.0~alpha2-1_amd64.deb
+Size: 42022204
+MD5sum: 667ab0e60f46617f5d1a0320ef0a611c
+SHA1: 52e96ee642c82bef05702352b985bc04444a75ba
+SHA256: 287626ddbea649dd588648b647f69ffc50602ba853ee3b77236e206ef4afc20b
+SHA512: 1241a22c793f6e13e6e19545a02c4588d8b04f009ae17d8ecca692a745449431ce05dec00900f55f331ba3090eb7ddbc8f631076e056ca1a91c962b0ac01df27
 Homepage: https://github.com/braemons/statemachined
 Description: The host side of one statemachined device.
  Owns the serial link to a state machine board: uploads graphs, arms trials,
@@ -477,6 +524,27 @@ Description: Visual stimulus display server for neuroscience experiments
  providing sub-millisecond frame timing for psychophysics experiments.
  Communicates via ZMQ (port 5555) using a protobuf protocol. Supports Jetson
  Orin Nano, Raspberry Pi 4/5, and desktop NVIDIA/AMD GPUs.
+
+Package: mousewheeld
+Architecture: amd64
+Version: 0.3.0~alpha1
+Priority: optional
+Section: science
+Maintainer: braemons
+Installed-Size: 142497
+Depends: systemd
+Filename: pool/testing/main/m/mousewheeld/mousewheeld_0.3.0~alpha1_amd64.deb
+Size: 33788966
+MD5sum: d025f33f5ceb39e1a98d68b2fa46f313
+SHA1: 4921750f2a8c41220d04ee7e574cb43a383b610c
+SHA256: cf1b20f376a791fec08c07ed115741bcdf6bd25e6a73ee639e93ab25a05b01cb
+SHA512: 4741faa98b4eb53729fbce9d077b3cb065ac645c80b13b1e249397227977fe8ed92c856712132a8b869bc91ecd9c60430be4d4005485325efa2483aa06ad9ec8
+Homepage: https://github.com/braemons/mousewheeld
+Description: The locomotion input of a braemons rig: a running wheel, read and published.
+ Publishes position into shared memory for vstimd to read every frame, fires
+ distance-triggered TTL lines through its board, and serves its own console
+ panels at /elements/.
+License: AGPL-3.0-or-later
 
 Package: statemachined
 Architecture: amd64
