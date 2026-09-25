@@ -297,6 +297,29 @@ Description: The host side of one statemachined device.
  for all of it. One daemon per device.
 License: AGPL-3.0-or-later AND LGPL-3.0-or-later AND GPL-3.0-or-later
 
+Package: braemons-triald
+Architecture: arm64
+Version: 0.3.0~alpha4-1
+Priority: optional
+Section: science
+Maintainer: Joscha Schmiedt <joscha.schmiedt@gmail.com>
+Bugs: https://github.com/braemons/triald/issues
+Installed-Size: 290287
+Depends: systemd
+Recommends: logrotate
+Filename: pool/testing/main/b/braemons-triald/braemons-triald_0.3.0~alpha4-1_arm64.deb
+Size: 71811418
+MD5sum: 7cf4aec0d4abebcc0414e7075a8b97ef
+SHA1: 610dc62dd63faeb968c7c9a9bb29ebe25496e058
+SHA256: 7e2eccd46ccbb8890f93a0f53d35667dd161824ebaf900b3b44c8ded4a5ef4d5
+SHA512: 3341134767f3cde33aca79b749782c959f96196c1801f58d743df5abbad5cd9b7cc880525f67fcb0d2c4dc4fa4b7b4f6a2836701bd099ba167534ab1548056ac
+Homepage: https://github.com/braemons/triald
+Description: Scriptable trial control daemon for brain research.
+ Decides what the next trial is and what happened on the last one: trial
+ types, switch rules, adaptive procedures, and a policy written in Python.
+ Commands the daemons that run a trial; subscribes to what they publish.
+License: AGPL-3.0-or-later
+
 Package: braemons-vstimd
 Architecture: arm64
 Version: 0.1.0~alpha10-1
